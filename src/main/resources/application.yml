@@ -5,3 +5,5 @@ logging.level:
 files:
     base: C:/Users/sdr/Documents/CNRS/Projets/JDEV2015/app/data
     in: ${files.base}/in
+    pattern: PrixCarburants_annuel_*.xml
+    done: done
