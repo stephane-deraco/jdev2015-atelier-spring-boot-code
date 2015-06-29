@@ -1,0 +1,3 @@
+logging.level:
+    org.jdev2015: DEBUG
+    org.springframework: INFO

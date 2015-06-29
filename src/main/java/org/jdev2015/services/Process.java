@@ -12,6 +12,6 @@ public class Process implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		LOG.info("C'est parti !!!");
+		LOG.debug("C'est parti !!!");
 	}
 }
