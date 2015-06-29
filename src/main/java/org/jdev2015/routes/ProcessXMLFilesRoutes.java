@@ -1,5 +1,6 @@
 package org.jdev2015.routes;
 
+import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +15,8 @@ public class ProcessXMLFilesRoutes extends RouteBuilder {
 
 		from("direct:processXML")
 				.split().tokenizeXML("pdv").streaming()
-				.setHeader("city").xpath("/pdv/ville/text()")
-				.log("City: ${header.city}");
+				.beanRef("transform")
+				.filter(simple("${body.isEmpty()} == false"))
+				.log(LoggingLevel.INFO, "PRICE", "${body.size()} prices");
 	}
 }

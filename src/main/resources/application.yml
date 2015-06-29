@@ -7,3 +7,10 @@ files:
     in: ${files.base}/in
     pattern: PrixCarburants_annuel_*.xml
     done: done
+
+price.filter:
+    cities:
+        - toulouse
+        - bordeaux
+        - paris
+        - lille
