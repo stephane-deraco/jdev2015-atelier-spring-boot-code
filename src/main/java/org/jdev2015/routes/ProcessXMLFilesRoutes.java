@@ -1,6 +1,5 @@
 package org.jdev2015.routes;
 
-import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
@@ -15,8 +14,9 @@ public class ProcessXMLFilesRoutes extends RouteBuilder {
 
 		from("direct:processXML")
 				.split().tokenizeXML("pdv").streaming()
-				.beanRef("transform")
+				.beanRef("transform", "toPrice")
 				.filter(simple("${body.isEmpty()} == false"))
-				.log(LoggingLevel.INFO, "PRICE", "${body.size()} prices");
+				.beanRef("transform", "toDBObject")
+				.to("mongodb:mongo?database=jdev&collection=prices&operation=insert");
 	}
 }

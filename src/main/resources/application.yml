@@ -1,6 +1,7 @@
 logging.level:
     org.jdev2015: DEBUG
     org.springframework: INFO
+    org.apache.camel.component.mongodb.converters: ERROR
 
 files:
     base: C:/Users/sdr/Documents/CNRS/Projets/JDEV2015/app/data
@@ -14,3 +15,8 @@ price.filter:
         - bordeaux
         - paris
         - lille
+
+spring.data.mongodb:
+    database: jdev
+
+camel.springboot.typeConversion: false

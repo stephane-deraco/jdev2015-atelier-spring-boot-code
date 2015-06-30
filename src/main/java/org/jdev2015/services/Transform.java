@@ -1,9 +1,12 @@
 package org.jdev2015.services;
 
 import com.google.common.base.Strings;
+import com.mongodb.DBObject;
+import org.apache.camel.Body;
 import org.apache.camel.language.XPath;
 import org.jdev2015.domain.Price;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Component;
 import org.w3c.dom.Element;
 
@@ -23,6 +26,9 @@ public class Transform {
 
 	@Autowired
 	private CityFilter cityFilter;
+
+	@Autowired
+	private MongoTemplate mongoTemplate;
 
 	public List<Price> toPrice(@XPath("/pdv/@latitude") String latitude,
 							   @XPath("/pdv/@longitude") String longitude,
@@ -47,6 +53,12 @@ public class Transform {
 				.map(Optional::get)
 				.collect(Collectors.toList());
 		return collect;
+	}
+
+	public List<DBObject> toDBObject(@Body List<Price> prices) {
+		return prices.stream()
+				.map(item -> (DBObject) mongoTemplate.getConverter().convertToMongoType(item))
+				.collect(Collectors.toList());
 	}
 
 	private Optional<Price> createPrice(String longitude, String latitude, String city, Element element) {
