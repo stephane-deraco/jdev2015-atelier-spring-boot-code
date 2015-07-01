@@ -1,9 +1,11 @@
 package org.jdev2015.routes;
 
 import org.apache.camel.builder.RouteBuilder;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.stereotype.Component;
 
 @Component
+@ConditionalOnExpression("'${process.carburant}'=='true'")
 public class ProcessXMLFilesRoutes extends RouteBuilder {
 
 	@Override

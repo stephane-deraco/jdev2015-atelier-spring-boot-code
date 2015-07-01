@@ -20,3 +20,5 @@ spring.data.mongodb:
     database: jdev
 
 camel.springboot.typeConversion: false
+
+process.carburant: false
