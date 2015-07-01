@@ -1,0 +1,9 @@
+= Atelier Spring Boot
+ JDEV 2015
+
+ Ce projet montre différents aspects de Spring Boot, en construisant pas à pas
+ une application qui récupère des données avec Apache Camel, les stocke dans
+ une base de données MongoDB, expose des services web REST pour récupérer ces
+ données, et au final expose des métriques pour les grapher.
+
+ Chaque étape est un commit, et aussi un tag nommé `xx-description`.
