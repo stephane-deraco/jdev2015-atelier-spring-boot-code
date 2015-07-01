@@ -22,3 +22,5 @@ spring.data.mongodb:
 camel.springboot.typeConversion: false
 
 process.carburant: false
+
+spring.jackson.serialization.indent_output: true
