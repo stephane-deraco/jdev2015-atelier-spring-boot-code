@@ -24,3 +24,5 @@ camel.springboot.typeConversion: false
 process.carburant: false
 
 spring.jackson.serialization.indent_output: true
+
+web.resources.dir: /c:/Users/sdr/Documents/CNRS/Projets/JDEV2015/app/www/
