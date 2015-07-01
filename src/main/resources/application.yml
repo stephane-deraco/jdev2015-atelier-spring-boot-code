@@ -26,3 +26,9 @@ process.carburant: false
 spring.jackson.serialization.indent_output: true
 
 web.resources.dir: /c:/Users/sdr/Documents/CNRS/Projets/JDEV2015/app/www/
+
+info.build:
+    artifact: ${project.artifactId}
+    name: ${project.name}
+    description: ${project.description}
+    version: ${project.version}
